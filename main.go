@@ -171,6 +171,10 @@ func calculateRoman(roman []string, operand string) string {
 	numOne := romanNumbers[romanOne]
 	numTwo := romanNumbers[romanTwo]
 
+	if numOne > 10 || numTwo > 10 {
+		panic("Numbers must be under 11")
+	}
+
 	if numOne < numTwo && operand == "-" {
 		panic("Roman result cant be negative")
 	}
@@ -204,6 +208,10 @@ func calculateArabic(arabic []string, operand string) string {
 	numTwo, errTwo := strconv.Atoi(arabic[1])
 	if errTwo != nil {
 		panic("Cant convert numTwo string to int")
+	}
+
+	if numOne > 10 || numTwo > 10 {
+		panic("Numbers must be under 11")
 	}
 
 	switch operand { // Задублировал логику можно рефактор
